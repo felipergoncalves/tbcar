@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}
+    lst_veic
+{% endblock %}
+
+{% block main %}
+    <h3>Lista de Veículos</h3>
+    {% for i in dados_veiculos %}
+<br>
+<form>
+    <label for="placa">Placa</label><br>
+    <input id="placa" value="{{i.placa}}" disabled><br>
+
+    <label for="modelo">Modelo</label><br>
+    <input id="modelo" value="{{i.modelo}}" disabled><br>
+
+    <label for="cor">Cor</label><br>
+    <input id="cor" value="{{i.cor}}" disabled><br>
+
+    <label for="marca">Marca</label><br>
+    <input id="marca" value="{{i.marca_id}}" disabled><br>
+
+    <label for="ano">Ano</label><br>
+    <input id="ano" value="{{i.ano}}" disabled><br>
+
+    <label for="cliente">Cliente</label><br>
+    <input id="cliente" value="{{i.cliente_id}}" disabled><br>
+
+    <label for="foto">Foto</label><br>
+    <input id="foto" value="{{i.foto}}" disabled><br>
+
+     <a class="btn btn-primary" href="{% url 'url_altera_veiculo' i.id %}">Editar</a>
+     <a class="btn btn-danger" href="{% url 'url_excluir_veiculo' i.id %}">Excluir</a>
+</form>
+    {% endfor%}
+{% endblock %}

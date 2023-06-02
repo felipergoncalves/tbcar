@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+lst_cli
+{% endblock %}
+
+{% block main %}
+<h3>Listagem de Clientes</h3>
+
+{% if messages %}
+{% for mensagem in messages %}
+<div class="alert alert-success alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>{{ mensagem }}</strong>
+</div>
+{% endfor %}
+{% endif %}
+<div class="card-group">
+    {% for i in dados_cliente %}
+    <div class="card" style="width: 15rem;">
+        {% if i.foto %}
+        <img class="card-img-top img-fluid img-thumbnail" src="{{i.foto.url}}">
+        {% else %}
+        <img class="card-img-top img-fluid img-thumbnail" src="{% static 'img/perfil_generico.png' %}">
+        {% endif %}
+        <div class="card-body">
+            <h5 class="card-title">{{ i.nome }}</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{ i.endereco }}</li>
+            <li class="list-group-item">{{ i.complemento }}</li>
+            <li class="list-group-item">{{ i.bairro }}</li>
+            <li class="list-group-item">{{ i.cidade }}</li>
+            <li class="list-group-item">{{ i.fone }}</li>
+            <li class="list-group-item">{{ i.email }}</li>
+        </ul>
+        <div class="card-body">
+            <a class="card-link btn btn-primary" href="{% url 'url_altera_cliente' i.id %}">Editar</a>
+            <a class="card-link btn btn-danger" href="{% url 'url_excluir_cliente' i.id %}">Excluir</a>
+        </div>
+    </div>
+    </li>
+
+
+    {% endfor %}
+</div>
+
+{% endblock %}

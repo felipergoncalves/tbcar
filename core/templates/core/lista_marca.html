@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}
+    lst_marca
+{% endblock %}
+
+{% block main %}
+    <h3>Lista de Marcas</h3>
+    {% for i in dados_marca %}
+<br>
+<form>
+    <label for="nome">Nome</label><br>
+    <input id="nome" value="{{i.nome}}" disabled><br>
+
+    <label for="url">Url</label><br>
+    <input id="url" value="{{i.url}}" disabled><br>
+
+    <label for="logo">Logo</label><br>
+    <input id="logo" value="{{i.logo}}" disabled><br>
+
+    <a class="btn btn-primary" href="{% url 'url_altera_marca' i.id %}">Editar</a>
+    <a class="btn btn-danger" href="{% url 'url_excluir_marca' i.id %}">Excluir</a>
+</form>
+    {% endfor%}
+{% endblock %}

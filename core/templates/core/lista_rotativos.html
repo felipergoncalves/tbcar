@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}
+    lst_rotativos
+{% endblock %}
+
+{% block main %}
+    <h3>Lista de Rotativos</h3>
+    {% for i in dados_rotativo %}
+<br>
+<form>
+    <label for="placa">Veículo</label><br>
+    <input id="placa" value="{{i.id_veiculo}}" disabled><br>
+
+    <label for="modelo">Preço Tabela</label><br>
+    <input id="modelo" value="{{i.id_tabela}}" disabled><br>
+
+    <label for="entrada">Entrada</label><br>
+    <input id="entrada" value="{{i.entrada}}" disabled><br>
+
+    <label for="saida">Saída</label><br>
+    <input id="saida" value="{{i.saida}}" disabled><br>
+
+    <label for="total">Total</label><br>
+    <input id="total" value="R${{i.total}}" disabled><br>
+
+    <label for="cor">Observações</label><br>
+    <input id="cor" value="{{i.observacoes}}" disabled><br>
+
+    <a class="btn btn-primary" href="{% url 'url_altera_rotativo' i.id %}">Editar</a>
+    <a class="btn btn-danger" href="{% url 'url_excluir_rotativo' i.id %}">Excluir</a>
+</form>
+    {% endfor%}
+{% endblock %}

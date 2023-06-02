@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}
+    lst_veic
+{% endblock %}
+
+{% block main %}
+    <h3>Lista de Tabelas</h3>
+    {% for i in dados %}
+<br>
+<form>
+    <label for="description">Descrição</label>
+    <input id="description" value="{{i.descricao}}" disabled>
+    <br>
+    <label for="value">Valor</label>
+    <input id="value" value="{{i.valor}}" disabled>
+     <a class="btn btn-primary" href="{% url 'url_altera_tabela' i.id %}">Editar</a>
+     <a class="btn btn-danger" href="{% url 'url_excluir_tabela' i.id %}">Excluir</a>
+</form><br>
+    {% endfor%}
+
+{% endblock %}

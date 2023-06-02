@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}
+    lst_mensalista
+{% endblock %}
+
+{% block main %}
+    <h3>Lista de Mensalistas</h3>
+    {% for i in dados_mensalista %}
+<br>
+<form>
+    <label for="placa">Veículo</label><br>
+    <input id="placa" value="{{i.id_veiculo}}" disabled><br>
+
+    <label for="modelo">Preço Tabela</label><br>
+    <input id="modelo" value="{{i.id_tabela}}" disabled><br>
+
+    <label for="cor">Observações</label><br>
+    <input id="cor" value="{{i.observacoes}}" disabled><br>
+
+    <a class="btn btn-primary" href="{% url 'url_altera_mensalista' i.id %}">Editar</a>
+    <a class="btn btn-danger" href="{% url 'url_excluir_mensalista' i.id %}">Excluir</a>
+</form>
+    {% endfor%}
+{% endblock %}

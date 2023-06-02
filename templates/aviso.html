@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Warning!
+{% endblock %}
+
+{% block main %}
+  <h3>Você não tem permissão para executar esta operação</h3>
+  <p><i>Procure o seu supervisor ou o administrador da rede</i></p>
+  <button onclick="window.location.href='/'">Voltar</button>
+{% endblock %}

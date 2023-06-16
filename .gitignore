@@ -1,3 +1,5 @@
-venv 
+venv
+.env
+tbcar/.env
 db.sqlite3
 .idea
